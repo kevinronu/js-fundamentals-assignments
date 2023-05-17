@@ -44,3 +44,19 @@ let GetSum = function (a, b) {
   return ((Math.abs(a - b) + 1) * (a + b)) / 2;
 };
 console.log(GetSum(-1, 1));
+
+// Pow
+// const pow = function (x, n) {
+//   if (n == 0) {
+//     return 1;
+//   } else if (n > 0) {
+//     return x * pow(x, n - 1);
+//   } else if (n < 0) {
+//     return pow(x, n + 1) / x;
+//   }
+// };
+// console.log(pow(2, -2));
+
+const pow = (x, n) =>
+  n === 0 ? 1 : n > 0 ? x * pow(x, n - 1) : pow(x, n + 1) / x;
+console.log(pow(2, -2));
