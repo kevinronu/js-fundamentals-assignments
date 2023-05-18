@@ -46,17 +46,161 @@ let GetSum = function (a, b) {
 console.log(GetSum(-1, 1));
 
 // Pow
-// const pow = function (x, n) {
-//   if (n == 0) {
-//     return 1;
-//   } else if (n > 0) {
-//     return x * pow(x, n - 1);
-//   } else if (n < 0) {
-//     return pow(x, n + 1) / x;
-//   }
-// };
-// console.log(pow(2, -2));
-
 const pow = (x, n) =>
   n === 0 ? 1 : n > 0 ? x * pow(x, n - 1) : pow(x, n + 1) / x;
 console.log(pow(2, -2));
+
+// Welcome!
+const languages = {
+  english: "Welcome",
+  czech: "Vitejte",
+  danish: "Velkomst",
+  dutch: "Welkom",
+  estonian: "Tere tulemast",
+  finnish: "Tervetuloa",
+  flemish: "Welgekomen",
+  french: "Bienvenue",
+  german: "Willkommen",
+  irish: "Failte",
+  italian: "Benvenuto",
+  latvian: "Gaidits",
+  lithuanian: "Laukiamas",
+  polish: "Witamy",
+  spanish: "Bienvenido",
+  swedish: "Valkommen",
+  welsh: "Croeso",
+};
+// function greet(language) {
+//   let msg = null;
+//   for (const [key, value] of Object.entries(languages)) {
+//     if (language == key) {
+//       msg = value;
+//     }
+//   }
+//   return msg == null ? "Welcome" : msg;
+// }
+const greet = (language) => languages[language] || languages["english"];
+console.log(greet("spanish"));
+
+// The Office II - Boredom Score
+const scores = {
+  accounts: 1,
+  finance: 2,
+  canteen: 10,
+  regulation: 3,
+  trading: 6,
+  change: 6,
+  IS: 8,
+  retail: 5,
+  cleaning: 4,
+  "pissing about": 25,
+};
+
+// function boredom(staff) {
+//   let sum = 0;
+//   for (const value of Object.values(staff)) {
+//     console.log(sum);
+//     sum = sum + scores[value];
+//   }
+//   if (sum <= 80) {
+//     return "kill me now";
+//   } else if (sum > 80 && sum < 100) {
+//     return "i can handle this";
+//   } else if (sum >= 100) {
+//     return "party time!!";
+//   }
+// }
+
+function boredom(staff) {
+  sum = Object.values(staff)
+    .map((e) => scores[e])
+    .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  return sum <= 80
+    ? "kill me now"
+    : sum < 100
+    ? "i can handle this"
+    : "party time!!";
+}
+
+console.log(
+  boredom({
+    tim: "IS",
+    jim: "finance",
+    randy: "pissing about",
+    sandy: "cleaning",
+    andy: "cleaning",
+    katie: "cleaning",
+    laura: "pissing about",
+    saajid: "regulation",
+    alex: "regulation",
+    john: "accounts",
+    mr: "canteen",
+  })
+);
+
+// Regular Ball Super Ball
+let Ball = function (input) {
+  this.ballType = input || "regular";
+};
+let ball1 = new Ball();
+let ball2 = new Ball("super");
+console.log(ball1.ballType);
+console.log(ball2.ballType);
+
+// Fix my method
+// function myFunction() {
+//   var MyObject = {
+//     objProperty: "string"
+//     objMethod: function() {
+//       return myObject.objProperty;
+// 		}
+//   }
+
+//   return myObject.Objmethod();
+// };
+function myFunction() {
+  let MyObject = {
+    objProperty: "string",
+    objMethod: function () {
+      return MyObject.objProperty;
+    },
+  };
+  return MyObject;
+}
+console.log(myFunction());
+
+// Convert Hash To An Array
+function convertHashToArray(hash) {
+  let array = Object.entries(hash);
+  // for (const [key, value] of Object.entries(hash)) {
+  //   array.push([key, value]);
+  // }
+  // array.sort((a, b) =>
+  //   a[0].localeCompare(b[0], "fr", { ignorePunctuation: true })
+  // );
+  return array.sort();
+}
+// function convertHashToArray(hash){
+//   return Object.entries(hash).sort();
+// }
+console.log(
+  convertHashToArray({ name: "Jeremy", age: 24, role: "Software Engineer" })
+);
+
+// Who likes it?
+function likes(names) {
+  let [name1, name2, name3, ...rest] = names;
+  switch (names.length) {
+    case 0:
+      return "no one likes this";
+    case 1:
+      return `${name1} likes this`;
+    case 2:
+      return `${name1} and ${name2} like this`;
+    case 3:
+      return `${name1}, ${name2} and ${name3} like this`;
+    default:
+      return `${name1}, ${name2} and ${names.length - 2} others like this`;
+  }
+}
+console.log(likes(["Alex", "Jacob", "Mark", "Max"]));
