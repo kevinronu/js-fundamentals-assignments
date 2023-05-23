@@ -204,3 +204,12 @@ function likes(names) {
   }
 }
 console.log(likes(["Alex", "Jacob", "Mark", "Max"]));
+
+// Abbreviate a Two Word Name
+function abbrevName(name) {
+  return name
+    .split(" ")
+    .map((e) => e[0].toUpperCase())
+    .join(".");
+}
+console.log(abbrevName("Kevin Robles"));
