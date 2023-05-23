@@ -257,3 +257,31 @@ function filter_list(l) {
   return l.filter((v) => typeof v == "number");
 }
 console.log(filter_list([1, 2, "aasf", "1", "123", 123]));
+
+// Find the unique number
+// function findUniq(array) {
+//   let result = [];
+//   for (const element of array) {
+//     let other = [];
+//     let count = 0;
+//     const index = array.indexOf(element);
+//     other = array
+//       .slice(0, index)
+//       .concat(array.slice(index + 1, array.length + 1));
+//     for (const iterator of other) {
+//       if (element == iterator) {
+//         count += 1;
+//       }
+//     }
+//     if (count == 0) {
+//       result.push(element);
+//     }
+//   }
+//   return result;
+// }
+function findUniq(arr) {
+  let result = [];
+  result.push(arr.find((n) => arr.indexOf(n) === arr.lastIndexOf(n)));
+  return result;
+}
+console.log(findUniq([0, 0, 1, 0, 4]));
