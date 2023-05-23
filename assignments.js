@@ -50,94 +50,6 @@ const pow = (x, n) =>
   n === 0 ? 1 : n > 0 ? x * pow(x, n - 1) : pow(x, n + 1) / x;
 console.log(pow(2, -2));
 
-// Welcome!
-const languages = {
-  english: "Welcome",
-  czech: "Vitejte",
-  danish: "Velkomst",
-  dutch: "Welkom",
-  estonian: "Tere tulemast",
-  finnish: "Tervetuloa",
-  flemish: "Welgekomen",
-  french: "Bienvenue",
-  german: "Willkommen",
-  irish: "Failte",
-  italian: "Benvenuto",
-  latvian: "Gaidits",
-  lithuanian: "Laukiamas",
-  polish: "Witamy",
-  spanish: "Bienvenido",
-  swedish: "Valkommen",
-  welsh: "Croeso",
-};
-// function greet(language) {
-//   let msg = null;
-//   for (const [key, value] of Object.entries(languages)) {
-//     if (language == key) {
-//       msg = value;
-//     }
-//   }
-//   return msg == null ? "Welcome" : msg;
-// }
-const greet = (language) => languages[language] || languages["english"];
-console.log(greet("spanish"));
-
-// The Office II - Boredom Score
-const scores = {
-  accounts: 1,
-  finance: 2,
-  canteen: 10,
-  regulation: 3,
-  trading: 6,
-  change: 6,
-  IS: 8,
-  retail: 5,
-  cleaning: 4,
-  "pissing about": 25,
-};
-
-// function boredom(staff) {
-//   let sum = 0;
-//   for (const value of Object.values(staff)) {
-//     console.log(sum);
-//     sum = sum + scores[value];
-//   }
-//   if (sum <= 80) {
-//     return "kill me now";
-//   } else if (sum > 80 && sum < 100) {
-//     return "i can handle this";
-//   } else if (sum >= 100) {
-//     return "party time!!";
-//   }
-// }
-
-function boredom(staff) {
-  sum = Object.values(staff)
-    .map((e) => scores[e])
-    .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-  return sum <= 80
-    ? "kill me now"
-    : sum < 100
-    ? "i can handle this"
-    : "party time!!";
-}
-
-console.log(
-  boredom({
-    tim: "IS",
-    jim: "finance",
-    randy: "pissing about",
-    sandy: "cleaning",
-    andy: "cleaning",
-    katie: "cleaning",
-    laura: "pissing about",
-    saajid: "regulation",
-    alex: "regulation",
-    john: "accounts",
-    mr: "canteen",
-  })
-);
-
 // Regular Ball Super Ball
 let Ball = function (input) {
   this.ballType = input || "regular";
@@ -285,3 +197,93 @@ function findUniq(arr) {
   return result;
 }
 console.log(findUniq([0, 0, 1, 0, 4]));
+
+// Next katas
+
+// Welcome!
+const languages = {
+  english: "Welcome",
+  czech: "Vitejte",
+  danish: "Velkomst",
+  dutch: "Welkom",
+  estonian: "Tere tulemast",
+  finnish: "Tervetuloa",
+  flemish: "Welgekomen",
+  french: "Bienvenue",
+  german: "Willkommen",
+  irish: "Failte",
+  italian: "Benvenuto",
+  latvian: "Gaidits",
+  lithuanian: "Laukiamas",
+  polish: "Witamy",
+  spanish: "Bienvenido",
+  swedish: "Valkommen",
+  welsh: "Croeso",
+};
+// function greet(language) {
+//   let msg = null;
+//   for (const [key, value] of Object.entries(languages)) {
+//     if (language == key) {
+//       msg = value;
+//     }
+//   }
+//   return msg == null ? "Welcome" : msg;
+// }
+const greet = (language) => languages[language] || languages["english"];
+console.log(greet("spanish"));
+
+// The Office II - Boredom Score
+const scores = {
+  accounts: 1,
+  finance: 2,
+  canteen: 10,
+  regulation: 3,
+  trading: 6,
+  change: 6,
+  IS: 8,
+  retail: 5,
+  cleaning: 4,
+  "pissing about": 25,
+};
+
+// function boredom(staff) {
+//   let sum = 0;
+//   for (const value of Object.values(staff)) {
+//     console.log(sum);
+//     sum = sum + scores[value];
+//   }
+//   if (sum <= 80) {
+//     return "kill me now";
+//   } else if (sum > 80 && sum < 100) {
+//     return "i can handle this";
+//   } else if (sum >= 100) {
+//     return "party time!!";
+//   }
+// }
+
+function boredom(staff) {
+  sum = Object.values(staff)
+    .map((e) => scores[e])
+    .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+  return sum <= 80
+    ? "kill me now"
+    : sum < 100
+    ? "i can handle this"
+    : "party time!!";
+}
+
+console.log(
+  boredom({
+    tim: "IS",
+    jim: "finance",
+    randy: "pissing about",
+    sandy: "cleaning",
+    andy: "cleaning",
+    katie: "cleaning",
+    laura: "pissing about",
+    saajid: "regulation",
+    alex: "regulation",
+    john: "accounts",
+    mr: "canteen",
+  })
+);
