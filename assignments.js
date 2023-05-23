@@ -287,3 +287,15 @@ console.log(
     mr: "canteen",
   })
 );
+
+// Sum of a sequence
+// const sequenceSum = (begin, end, step) => {
+//   if (begin <= end) {
+//     return begin + sequenceSum(begin + step, end, step);
+//   } else {
+//     return 0;
+//   }
+// };
+const sequenceSum = (b, e, s) => (b <= e ? b + sequenceSum(b + s, e, s) : 0);
+console.log(sequenceSum(1, 5, 1));
+// 2,6,2 --> 12 (2 + 4 + 6)
