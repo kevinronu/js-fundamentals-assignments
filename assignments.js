@@ -244,3 +244,16 @@ function divisibleByThree(str) {
   return str.split("").reduce((a, b) => Number(a) + Number(b)) % 3 == 0;
 }
 console.log(divisibleByThree("1"));
+
+// List Filtering
+function filter_list(l) {
+  // let result = [];
+  // for (const e of l) {
+  //   if (typeof e == "number") {
+  //     result.push(e);
+  //   }
+  // }
+  // return result;
+  return l.filter((v) => typeof v == "number");
+}
+console.log(filter_list([1, 2, "aasf", "1", "123", 123]));
