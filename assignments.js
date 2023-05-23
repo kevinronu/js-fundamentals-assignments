@@ -213,3 +213,34 @@ function abbrevName(name) {
     .join(".");
 }
 console.log(abbrevName("Kevin Robles"));
+
+// You only need one - Beginner
+function check1(array, x) {
+  let boolean = false;
+  for (const element of array) {
+    if (element == x) {
+      boolean = true;
+    }
+  }
+  return boolean;
+}
+console.log(check1(["what", "a", "great", "kata"], "kat"));
+
+// No Loops 2 - You only need one
+const check2 = (array, x) => array.includes(x);
+console.log(check2(["what", "a", "great", "kata"], "kat"));
+
+// Sum of two lowest positive integers
+function sumTwoSmallestNumbers(numbers) {
+  return numbers
+    .sort((a, b) => a - b)
+    .slice(0, 2)
+    .reduce((a, b) => a + b);
+}
+console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22]));
+
+// By 3, or not by 3? That is the question . . .
+function divisibleByThree(str) {
+  return str.split("").reduce((a, b) => Number(a) + Number(b)) % 3 == 0;
+}
+console.log(divisibleByThree("1"));
