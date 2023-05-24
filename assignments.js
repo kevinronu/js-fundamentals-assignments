@@ -331,5 +331,19 @@ function makeLazy(callback, ...args) {
 function add(a, b) {
   return a + b;
 }
+// const make_lazy =
+//   (fn, ...rest) =>
+//   () =>
+//     fn(...rest);
 let lazy_value = makeLazy(add, 2, 3);
 console.log(lazy_value());
+
+// Javascript Mathematician
+function calculate(...args) {
+  // console.log(args);
+  return function (...args2) {
+    // console.log(args2);
+    return [...args, ...args2].reduce((a, b) => a + b);
+  };
+}
+console.log(calculate(1, 1)(1, -1));
