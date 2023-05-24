@@ -50,73 +50,6 @@ const pow = (x, n) =>
   n === 0 ? 1 : n > 0 ? x * pow(x, n - 1) : pow(x, n + 1) / x;
 console.log(pow(2, -2));
 
-// Regular Ball Super Ball
-let Ball = function (input) {
-  this.ballType = input || "regular";
-};
-let ball1 = new Ball();
-let ball2 = new Ball("super");
-console.log(ball1.ballType);
-console.log(ball2.ballType);
-
-// Fix my method
-// function myFunction() {
-//   var MyObject = {
-//     objProperty: "string"
-//     objMethod: function() {
-//       return myObject.objProperty;
-// 		}
-//   }
-
-//   return myObject.Objmethod();
-// };
-function myFunction() {
-  let MyObject = {
-    objProperty: "string",
-    objMethod: function () {
-      return MyObject.objProperty;
-    },
-  };
-  return MyObject;
-}
-console.log(myFunction());
-
-// Convert Hash To An Array
-function convertHashToArray(hash) {
-  let array = Object.entries(hash);
-  // for (const [key, value] of Object.entries(hash)) {
-  //   array.push([key, value]);
-  // }
-  // array.sort((a, b) =>
-  //   a[0].localeCompare(b[0], "fr", { ignorePunctuation: true })
-  // );
-  return array.sort();
-}
-// function convertHashToArray(hash){
-//   return Object.entries(hash).sort();
-// }
-console.log(
-  convertHashToArray({ name: "Jeremy", age: 24, role: "Software Engineer" })
-);
-
-// Who likes it?
-function likes(names) {
-  let [name1, name2, name3, ...rest] = names;
-  switch (names.length) {
-    case 0:
-      return "no one likes this";
-    case 1:
-      return `${name1} likes this`;
-    case 2:
-      return `${name1} and ${name2} like this`;
-    case 3:
-      return `${name1}, ${name2} and ${name3} like this`;
-    default:
-      return `${name1}, ${name2} and ${names.length - 2} others like this`;
-  }
-}
-console.log(likes(["Alex", "Jacob", "Mark", "Max"]));
-
 // Abbreviate a Two Word Name
 function abbrevName(name) {
   return name
@@ -348,7 +281,7 @@ function calculate(...args) {
 }
 console.log(calculate(1, 1)(1, -1));
 
-// Anonymous Returns.
+// Anonymous Returns - Question
 // global.name = "The Window";
 const name = "The Window";
 
@@ -372,3 +305,70 @@ let alpha = {
   },
 };
 console.log(alpha.getNameFunc()());
+
+// Regular Ball Super Ball
+let Ball = function (input) {
+  this.ballType = input || "regular";
+};
+let ball1 = new Ball();
+let ball2 = new Ball("super");
+console.log(ball1.ballType);
+console.log(ball2.ballType);
+
+// Fix my method - Question
+// function myFunction() {
+//   var MyObject = {
+//     objProperty: "string"
+//     objMethod: function() {
+//       return myObject.objProperty;
+// 		}
+//   }
+//   return myObject.Objmethod();
+// };
+
+function myFunction() {
+  var MyObject = {
+    objProperty: "string",
+    objMethod() {
+      return this.objProperty;
+    },
+  };
+  return MyObject;
+}
+console.log(myFunction());
+
+// Convert Hash To An Array
+function convertHashToArray(hash) {
+  let array = Object.entries(hash);
+  // for (const [key, value] of Object.entries(hash)) {
+  //   array.push([key, value]);
+  // }
+  // array.sort((a, b) =>
+  //   a[0].localeCompare(b[0], "fr", { ignorePunctuation: true })
+  // );
+  return array.sort();
+}
+// function convertHashToArray(hash){
+//   return Object.entries(hash).sort();
+// }
+console.log(
+  convertHashToArray({ name: "Jeremy", age: 24, role: "Software Engineer" })
+);
+
+// Who likes it?
+function likes(names) {
+  let [name1, name2, name3, ...rest] = names;
+  switch (names.length) {
+    case 0:
+      return "no one likes this";
+    case 1:
+      return `${name1} likes this`;
+    case 2:
+      return `${name1} and ${name2} like this`;
+    case 3:
+      return `${name1}, ${name2} and ${name3} like this`;
+    default:
+      return `${name1}, ${name2} and ${names.length - 2} others like this`;
+  }
+}
+console.log(likes(["Alex", "Jacob", "Mark", "Max"]));
