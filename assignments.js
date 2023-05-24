@@ -320,3 +320,16 @@ let a = { 1: "1", 2: "2", 3: "3" },
   c = { 5: "9", 8: "9", 6: "12", 23: "35" },
   o = [a, b, c];
 console.log(objConcat(o));
+
+// Lazily executing a function
+function makeLazy(callback, ...args) {
+  return function () {
+    // callback(...args);
+    return callback(...args);
+  };
+}
+function add(a, b) {
+  return a + b;
+}
+let lazy_value = makeLazy(add, 2, 3);
+console.log(lazy_value());
