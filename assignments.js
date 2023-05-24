@@ -298,4 +298,12 @@ console.log(
 // };
 const sequenceSum = (b, e, s) => (b <= e ? b + sequenceSum(b + s, e, s) : 0);
 console.log(sequenceSum(1, 5, 1));
-// 2,6,2 --> 12 (2 + 4 + 6)
+
+// Array Deep Count
+function deepCount(input) {
+  let count = input.length;
+  for (const element of input)
+    if (typeof element == "object") count += deepCount(element);
+  return count;
+}
+console.log(deepCount([1, 2, [3, 4, [5]]]));
