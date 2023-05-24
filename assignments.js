@@ -347,3 +347,28 @@ function calculate(...args) {
   };
 }
 console.log(calculate(1, 1)(1, -1));
+
+// Anonymous Returns.
+// global.name = "The Window";
+const name = "The Window";
+
+let alpha = {
+  name: "My Alpha",
+  getNameFunc: function () {
+    // return function () {
+    //   return this.name;
+    // };
+
+    // return function () {
+    //   return this.name;
+    // }.bind(this);
+
+    // let me = this;
+    // return function () {
+    //   return me.name;
+    // };
+
+    return () => this.name;
+  },
+};
+console.log(alpha.getNameFunc()());
